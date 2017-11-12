@@ -1,0 +1,24 @@
+df = pd.read_csv('table.csv', head=0) -> creates a dataframe object from a csv file with the first row as a the column header
+
+
+df.head() -> returns the first 5 rows of a dataframe
+df.tail() -> returns the last 5 rows of a dataframe
+df.describe() -> returns a statistical summary table of mean, min, max, std etc..
+
+df.shape -> returns the dimensions of the dataframe rows_num, cols_num
+df.dtype -> returns the columns data types
+df.columns -> returns the columns names
+
+df.rename(columns={'old name': 'new_name',...}, inplace = True) -> renames column(s) name(s) in a dataframe
+df.columns = df.columns.str.replace(' ', '_') -> replaces space characters in column names with underscores
+
+df.drop('column_name', axis=1, inplace=True) -> drops a column from the dataframe obj
+
+df.sort_values('column_name') -> returns a sorted dataframe object by a column name
+df.column_name.sort_values('column_name', ascending=False) -> returns a decending sorted dataframe object by a column name
+
+df[df.column_name == 'xyz'] -> returns rows based on the condition (returning a series of booleans of True values)
+
+
+
+
