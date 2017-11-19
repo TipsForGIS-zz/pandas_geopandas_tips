@@ -6,7 +6,6 @@ pd.DataFrame.from_dict(dict_obj, orient='columns') -> returns a dataframe from a
 pd.DataFrame.from_dict(dict_obj, orient='index') 
 pd.columns = [...] -> returns a dataframe from a dictionary object where keys are indeces and valus are the remaining row values, then assign column names to the dataframe
 
-
 # export dataframe
 pd.to_csv('table.csv', index=False) -> exports the dataframe into a csv file without the index column: 0,1,2...
 
@@ -67,5 +66,12 @@ df['new_col'] = df.apply(lambda row: function_name(row['col1'], row['col7']), ax
 # loc method
 df.loc[0:50, ['col1','col7']] -> returns a new dataframe with the first 50 rows and the specificed columns
 df.loc[0:50,:] -> returns a new dataframe with the first 50 rows and all columns
-df.loc[df.col1=='something', ['col1','col7']] -> 
+df.loc[df.col1=='something', ['col1','col7']] -> returns a dataframe based on the condition for col1 and dispalays col1 & col7
+round(df.col1,2).astype('int') -> returns a column or series of float values into int after rounding the float
+
+# save memory
+pd.to_numeric(column_name_or_series, downcast='float') -> if the column is in float64 and the values can be handled with float32, it will convert the values. downcast can also work with integer
+df.col1.astype('category') -> returns an object column or series as category
+pd.read_csv('...').fillna(0) -> fills in the null values with zeros
+
 
