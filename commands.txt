@@ -17,6 +17,7 @@ df.describe().min() -> returns the min values for the columns in the dataframe
 df.column_name.mean() -> returns the mean of the specified column
 df.info(memory_usage='deep') -> returns the memory usage for the dataframe
 df.memory_usage(deep=True) -> returns the memory usage for each column in the dataframe
+df.isnull().sum() -> returns the sum of null values for each column or series in df
 
 # iterating the dataframes and the series
 for c in df.column_name: print(c) -> iterates a pandas series, a dataframe column
