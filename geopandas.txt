@@ -19,7 +19,47 @@ gp_df2 = gp.read_file('./file_name2.geojson')
 
 ----------------------------------------------------
 3. Saves as a file from a geopandas dataframe
+The try and catch is there to avoid the overwrite
+missing functionality in geopandas
 ----------------------------------------------------
-new_df.to_file('./geodata/state_2016_b2.geojson', driver="GeoJSON")
-new_df.to_file('./geodata/state_2016_b2.geojson', driver="ESRI Shapefile")
+try: 
+    os.remove('./file_name.geojson')
+except OSError:
+    pass
+gp_df.to_file('./file_name.geojson', driver="GeoJSON")
+
+try: 
+    os.remove('./file_name.shp')
+except OSError:
+    pass
+gp_df.to_file('./file_name.shp', driver="ESRI Shapefile")
 ----------------------------------------------------
+
+----------------------------------------------------
+4. Creates a boundinng box dataframe of 4 columns:
+minx, miny, maxx, maxy
+----------------------------------------------------
+bounds_df = gp_df['geometry'].bounds
+----------------------------------------------------
+
+----------------------------------------------------
+5. Creates a centroid longitude series
+----------------------------------------------------
+centroid_ser_x = gp_df['geometry'].centroid.x
+----------------------------------------------------
+
+----------------------------------------------------
+6. Creates a centroid latitude series
+----------------------------------------------------
+centroid_ser_x = gp_df['geometry'].centroid.y
+----------------------------------------------------
+
+----------------------------------------------------
+7. Concats the original dataframe with the bounding
+box and centroid columns
+----------------------------------------------------
+new_df = pd.concat([gp_df, bounds_df,centroid_ser_x,centroid_ser_y], axis=1)
+----------------------------------------------------
+
+
+
