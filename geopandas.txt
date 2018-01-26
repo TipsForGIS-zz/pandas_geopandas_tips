@@ -45,20 +45,22 @@ bounds_df = gp_df['geometry'].bounds
 ----------------------------------------------------
 5. Creates a centroid longitude series
 ----------------------------------------------------
-centroid_ser_x = gp_df['geometry'].centroid.x
+centroid_ser_lng = gp_df['geometry'].centroid.x
 ----------------------------------------------------
 
 ----------------------------------------------------
 6. Creates a centroid latitude series
 ----------------------------------------------------
-centroid_ser_x = gp_df['geometry'].centroid.y
+centroid_ser_lat = gp_df['geometry'].centroid.y
 ----------------------------------------------------
 
 ----------------------------------------------------
 7. Concats the original dataframe with the bounding
 box and centroid columns
 ----------------------------------------------------
-new_df = pd.concat([gp_df, bounds_df,centroid_ser_x,centroid_ser_y], axis=1)
+new_df = pd.concat([gp_df, bounds_df,centroid_ser_lng,centroid_ser_lat], axis=1)
+new_df.rename(columns={0: 'centroid_lng'}, inplace=True)
+new_df.rename(columns={1: 'centroid_lat'}, inplace=True)
 ----------------------------------------------------
 
 
