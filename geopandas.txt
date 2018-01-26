@@ -1,0 +1,25 @@
+----------------------------------------------------
+1. Convert pandas dataframe into geopandas dataframe
+----------------------------------------------------
+import pandas as pd
+import geopandas as gp
+from shapely.geometry import Point
+
+pd_df = pd.read_csv('./points.csv')
+pd_df['geometry'] = pd_df.apply(lambda row: Point(row.lng, row.Ylat), axis=1)
+gp_df = gp.GeoDataFrame(pd_df)
+----------------------------------------------------
+
+----------------------------------------------------
+2. Creates a geopandas dataframe
+----------------------------------------------------
+gp_df = gp.read_file('./file_name.shp')
+gp_df2 = gp.read_file('./file_name2.geojson')
+----------------------------------------------------
+
+----------------------------------------------------
+3. Saves as a file from a geopandas dataframe
+----------------------------------------------------
+new_df.to_file('./geodata/state_2016_b2.geojson', driver="GeoJSON")
+new_df.to_file('./geodata/state_2016_b2.geojson', driver="ESRI Shapefile")
+----------------------------------------------------
