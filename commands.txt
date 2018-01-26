@@ -70,6 +70,11 @@ df.loc[0:50,:] -> returns a new dataframe with the first 50 rows and all columns
 df.loc[df.col1=='something', ['col1','col7']] -> returns a dataframe based on the condition for col1 and dispalays col1 & col7
 round(df.col1,2).astype('int') -> returns a column or series of float values into int after rounding the float
 
+# set_value
+idx = df[df['col_3'] == 'some value'].index -> gets the row index based on a value in a specific column
+df.set_value(idx, 'col_7', 'some other value') -> sets the value of another column using the previously defined idx
+
+
 # save memory
 pd.to_numeric(column_name_or_series, downcast='float') -> if the column is in float64 and the values can be handled with float32, it will convert the values. downcast can also work with integer
 df.col1.astype('category') -> returns an object column or series as category
