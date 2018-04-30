@@ -63,5 +63,16 @@ new_df.rename(columns={0: 'centroid_lng'}, inplace=True)
 new_df.rename(columns={1: 'centroid_lat'}, inplace=True)
 ----------------------------------------------------
 
+----------------------------------------------------
+8. Creates a boolean series where of points and polyons
+intersect. Then concatenate result series with the points df
+----------------------------------------------------
+polys_df = gpd.read_postgis(sql,con,geom_col='geometry')
+points_df = gp.read_file('./points.geojson')
+
+intersection_ser = points_df.intersects(polys_df.unary_union)
+intersection_df = pd.concat([points_df,intersection_ser],axis=1)
+----------------------------------------------------
+
 
 
