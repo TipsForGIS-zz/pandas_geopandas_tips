@@ -1,5 +1,5 @@
 # create dataframes
-pd.read_csv('table.csv', head=0) -> returns a pandas dataframe from a csv file with the first row as a the column header
+pd.read_csv('table.csv', header=0) -> returns a pandas dataframe from a csv file with the first row as a the column header
 pd.read_csv('table.csv', nrows=50) -> returns a pandas dataframe from the first 50 rows of a csv file
 pd.read_csv('table.csv', dtypes={'c1':int,'c7':float}) -> returns a pandas dataframe with new datatypes for the columns in the dictoinary
 pd.DataFrame.from_dict(dict_obj, orient='columns') -> returns a dataframe from a dictionary object where keys are columns and valus are row values
