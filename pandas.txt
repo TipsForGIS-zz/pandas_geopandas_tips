@@ -25,7 +25,7 @@ for index, row in df.iterrows(): print(index, row.col1, row.col2) -> iterates a 
 
 # reading properties of dataframes
 df.shape -> returns the dimensions of the dataframe rows_num, cols_num
-df.dtype -> returns the columns data types
+df.dtypes -> returns the columns data types
 df.columns -> returns the columns names
 
 # manipulating column
